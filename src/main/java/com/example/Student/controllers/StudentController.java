@@ -13,6 +13,11 @@ public class StudentController {
     @Autowired
     StudentServices stu;
 
+    @GetMapping("/")
+    public String routes(){
+        return "Welcome to spring boot security";
+    }
+
     @GetMapping("/students")
     public List<Student> getAllStudents(){
         return stu.getAllStudents();
@@ -33,7 +38,6 @@ public class StudentController {
         stu.updateStudents(id,student);
     }
 
-    // DELETE student
     @DeleteMapping("/students/{id}")
     public void deleteStudent(@PathVariable int id) {
         stu.deleteStudents(id);
